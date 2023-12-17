@@ -9,6 +9,10 @@ Examples :
 Input: arr[] = {10, 4, 3, 50, 23, 90}
 Output: 90, 50, 23
 
+Input: arr[] = {7,8,9,10,10}
+required Output: 10, 9, 8
+actual output: 10, 10, 9
+
 */
 
 #include<bits/stdc++.h>
@@ -58,15 +62,17 @@ void display3Largest(vector<int> &arr){
 }
 
 int main(){
-    int n;
-    cin>>n;
+    // int n;
+    // cin>>n;
 
-    vector<int> arr;
-    for(int i=0; i<n; i++){
-        int tp;
-        cin>>tp;
-        arr.push_back(tp);
-    }
+    // vector<int> arr;
+    // for(int i=0; i<n; i++){
+    //     int tp;
+    //     cin>>tp;
+    //     arr.push_back(tp);
+    // }
+
+    vector<int> arr = {7,8,9,10,10};
 
     display3Largest(arr);
     return 0;

@@ -24,8 +24,29 @@ Explanation: There can be 6 possible triangles:
 #include<bits/stdc++.h>
 using namespace std;
 
+int possibletriangle(int arr[], int n){
+    sort(arr,arr+n);
+    int count = 0;
+    for(int i = n-1; i>=1; i--){
+        int left = 0,right = i-1;
+        while (left < right)
+        {
+            if(arr[left] + arr[right] > arr[i]){
+                count += (right-left);
+                right--;
+            }else{
+                left++;
+            }
+        }
+    }
+    return count;
+}
+
 int main(){
     
+    int arr[] = {4, 6, 3, 7};
+    int n = sizeof(arr) / sizeof(arr[0]);
 
+    cout<<possibletriangle(arr,n);
     return 0;
 }
