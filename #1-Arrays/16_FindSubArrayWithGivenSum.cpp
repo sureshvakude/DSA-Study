@@ -13,3 +13,36 @@ Explanation: Sum of elements between indices 2 and 4 is 20 + 3 + 10 = 33
 
 */
 
+#include<bits/stdc++.h>
+using namespace std;
+
+void FindSubArrayRange(int arr[], int sum, int n){
+    int startIndex = 0;
+    int curSum = arr[startIndex];
+    int i = 1;
+    for(int i=1; i<n; i++){
+        curSum += arr[i];
+        
+        while(curSum > sum && startIndex < i-1){
+            curSum -= arr[startIndex];
+            startIndex++;
+        }
+
+        if(curSum == sum){
+            cout<<startIndex<<" "<<i<<endl;
+            return;
+        }
+
+    }
+    cout<<"Not Found";
+}
+
+int main(){
+
+    int arr[] = {1, 4, 20, 3, 10, 5};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int sum = 33;
+
+    FindSubArrayRange(arr,sum,n);
+    return 0;
+}
